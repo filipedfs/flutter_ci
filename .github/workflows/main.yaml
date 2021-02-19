@@ -1,9 +1,11 @@
 name: Build and Release App Bundle
 on:
-  push
+  push:
+    tags:
+      - v*
 jobs:
   build:
-    #if: github.event.base_ref == 'refs/heads/main'
+    if: ${github.event.base_ref} == 'refs/heads/main'
     name: Build App Bundle
     runs-on: ubuntu-latest
     steps:
