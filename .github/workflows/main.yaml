@@ -23,6 +23,6 @@ jobs:
       - name: Create a Release App Bundle
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/apk/debug/*.apk"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "build/app/outputs/bundle/release/app-release.aab"
+          token: ${{ secrets.TOKEN }}
           name: "Flutter CI/CD ${GITHUB_REF#refs/tags/}"
