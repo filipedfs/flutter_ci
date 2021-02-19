@@ -22,7 +22,7 @@ jobs:
       - name: Get Flutter Dependencies
         run: flutter pub get
       - name: Generate files
-        run: echo TODO:: generating files...
+        run: "echo TODO: generating files..."
       - name: Run tests
         run: flutter test
       - name: Create app bundle file
