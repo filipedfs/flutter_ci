@@ -1,8 +1,8 @@
 name: Build and Release App Bundle
 on:
   push
-  tags:
-    - v*
+    tags:
+      - v*
 jobs:
   build:
     if: github.event.base_ref == 'refs/heads/master'
