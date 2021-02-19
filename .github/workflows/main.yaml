@@ -2,7 +2,7 @@ name: Build and Release App Bundle
 on:
   push:
     tags:
-      - v*
+      - "v*"
 jobs:
   build:
     if: github.event.base_ref == 'refs/heads/main'
@@ -14,11 +14,11 @@ jobs:
       - name: Echo 1
         run: echo ${{github.event.base_ref}}
       - name: Echo 2
-        run: echo ${github.event.base_ref}
+        run: echo ${{github.event.base_ref}}
       - name: Echo 3
         run: echo ${{ github.event.ref }} ${{ github.ref }}
-      - name: Echo 4
-        run: echo ${ github.event.ref } ${ github.ref }
+#      - name: Echo 4
+#        run: echo ${ github.event.ref } ${ github.ref }
 #      - name: Echo 5
 #        run: echo ${GITHUB_REF#refs/tags/} ${{GITHUB_REF#refs/tags/}}
       - uses: actions/checkout@v2
