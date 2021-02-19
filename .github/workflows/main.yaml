@@ -37,4 +37,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/bundle/release/app-release.aab"
           token: ${{ secrets.TOKEN }}
-          name: Flutter CI/CD ${{GITHUB_REF#refs/tags/}}
+          name: Flutter CI/CD
