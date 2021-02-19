@@ -5,7 +5,7 @@ on:
       - "v*"
 jobs:
   build:
-    if: ${github.event.base_ref} == 'refs/heads/main'
+    if: github.event.base_ref == 'refs/heads/master'
     name: Build App Bundle
     runs-on: ubuntu-latest
     steps:
@@ -22,9 +22,9 @@ jobs:
       - name: Get Flutter Dependencies
         run: flutter pub get
       - name: Generate files
-        run: echo Generating files...
+        run: flutter pub run build_runner build --delete-conflicting-outputs
       - name: Run tests
-        run: flutter test
+      #        run: flutter test
       - name: Create app bundle file
         run: flutter build appbundle
       - name: Get version number
@@ -35,4 +35,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/bundle/release/app-release.aab"
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: Flutter CI/CD ${{ steps.version_number.outputs.TAG }}
+          name: Virtual Choir ${{ steps.version_number.outputs.TAG }}
