@@ -9,10 +9,16 @@ jobs:
     steps:
       - name: Echo String
         run: echo Teste
-      - name: Echo
+      - name: Echo 1
         run: echo ${{github.event.base_ref}}
       - name: Echo 2
+        run: echo ${github.event.base_ref}
+      - name: Echo 3
         run: echo ${{ github.event.ref }} ${{ github.ref }}
+      - name: Echo 4
+        run: echo ${ github.event.ref } ${ github.ref }
+      - name: Echo 5
+        run: echo ${GITHUB_REF#refs/tags/} ${{GITHUB_REF#refs/tags/}}
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
@@ -29,4 +35,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/bundle/release/app-release.aab"
           token: ${{ secrets.TOKEN }}
-          name: "Flutter CI/CD ${GITHUB_REF#refs/tags/}"
+          name: Flutter CI/CD ${GITHUB_REF#refs/tags/}
