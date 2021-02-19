@@ -25,4 +25,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/apk/debug/*.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: "Virtual Choir ${GITHUB_REF#refs/tags/}"
+          name: "Flutter CI/CD ${GITHUB_REF#refs/tags/}"
